@@ -18,6 +18,7 @@ load_more.classList.add('is-hidden');
 
 
 search_form.addEventListener('submit', (e) => {
+  const value = search_form.elements.searchQuery.value;
     e.preventDefault();
   if (value.trim() === '') {
     gallery.innerHTML = '';
