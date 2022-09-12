@@ -46,7 +46,7 @@ load_more.addEventListener('click', () => {
 
   page += 1;
 
-  if (page < totalPages) {
+  if (page > pageSize) {
     load_more.classList.add('is-hidden');
     Notify.info("We're sorry, but you've reached the end of search results.");
   }
