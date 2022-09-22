@@ -28,6 +28,17 @@ search_form.addEventListener('submit', async e => {
   const data = await fetchPicture(query);
   showPictures(data);
   page += 1;
+
+  
+ const { height: cardHeight } = document
+ .querySelector('.gallery')
+ .firstElementChild.getBoundingClientRect();
+    
+ window.scrollBy({
+  top: cardHeight * 2,
+  behavior: 'smooth',
+  });
+  
   load_more.classList.remove('is-hidden');
 });
 load_more.addEventListener('click', async () => {
@@ -40,14 +51,5 @@ load_more.addEventListener('click', async () => {
     load_more.classList.add('is-hidden');
     Notify.info("We're sorry, but you've reached the end of search results.");
 
-
- const { height: cardHeight } = document
- .querySelector('.gallery')
- .firstElementChild.getBoundingClientRect();
-    
- window.scrollBy({
-  top: cardHeight * 2,
-  behavior: 'smooth',
-  });
-  }
+}
 });
