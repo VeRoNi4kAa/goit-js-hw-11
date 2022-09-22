@@ -39,6 +39,9 @@ load_more.addEventListener('click', async () => {
   if (data.totalHits - cards.length <= 40) {
     load_more.classList.add('is-hidden');
     Notify.info("We're sorry, but you've reached the end of search results.");
+
+      
+  gallery.insertAdjacentHTML('beforeend', markupPicture);
      let lightbox = new SimpleLightbox('.gallery a', {
       captionsData: 'alt',
       captionDelay: 250,
