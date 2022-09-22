@@ -29,16 +29,6 @@ search_form.addEventListener('submit', async e => {
   showPictures(data);
   page += 1;
 
-  
- const { height: cardHeight } = document
- .querySelector('.gallery')
- .firstElementChild.getBoundingClientRect();
-    
- window.scrollBy({
-  top: cardHeight * 2,
-  behavior: 'smooth',
-  });
-  
   load_more.classList.remove('is-hidden');
 });
 load_more.addEventListener('click', async () => {
@@ -46,6 +36,16 @@ load_more.addEventListener('click', async () => {
   const data = await fetchPicture(value);
   showPictures(data);
   page += 1;
+
+  const { height: cardHeight } = document
+  .querySelector('.gallery')
+  .firstElementChild.getBoundingClientRect();
+     
+  window.scrollBy({
+   top: cardHeight * 2,
+   behavior: 'smooth',
+   });
+ 
   const cards = gallery.querySelectorAll('.photo-card');
   if (data.totalHits - cards.length <= 40) {
     load_more.classList.add('is-hidden');
