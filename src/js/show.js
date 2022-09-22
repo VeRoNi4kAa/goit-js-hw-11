@@ -32,5 +32,11 @@ export function showPictures(data) {
     </div>`;    
   })
   .join("");
-      
+            
+  gallery.insertAdjacentHTML('beforeend', markupPicture);
+  let lightbox = new SimpleLightbox('.gallery a', {
+   captionsData: 'alt',
+   captionDelay: 250,
+     });
+lightbox.refresh();
   }
